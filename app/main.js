@@ -3,11 +3,9 @@ import "./../assets/styles/tailwind.sass";
 import "./../assets/styles/style.sass";
 import "phosphor-icons";
 import mockData from "./data.json";
-import { data } from "autoprefixer";
 
 
 console.log("hola");
-console.log(data);
 
 
 
@@ -15,6 +13,7 @@ console.log(data);
 
 window.addEventListener("load", () => {
   renderTweets();
+  initTweetSearch()
 });
 const renderTweets = () => {
   const tweetsBlock = document.querySelector(".feed_tweet");
@@ -71,42 +70,40 @@ const renderTweets = () => {
 
   tweetsBlock.innerHTML = tweetsHTML;
   //
-  
- 
 
-/////////////////////////////////////// COUNT RTS & LIKES (SOLO FUNCIONA EN EL PRIMER TWEET) WHY???
 
-initTweetEvents()
+
+  /////////////////////////////////////// COUNT RTS & LIKES (SOLO FUNCIONA EN EL PRIMER TWEET) WHY???
+
+  initTweetEvents()
 };
 
 const initTweetEvents = () => {
-  const allTweets = document.querySelectorAll(".feed_tweet")
-  
+  const allTweets = document.querySelectorAll(".tweet_container")
+
   //RTs
-  allTweets.forEach((tweet, i)=> {
-      const count_retweets = tweet.querySelector(".button_rts")
-      count_retweets.addEventListener("click", () => {
-          mockData[i].user.retweets++
-          renderTweets()
-      })
+  allTweets.forEach((tweet, i) => {
+    const count_retweets = tweet.querySelector(".button_rts") // null volver a meter el div
+    count_retweets.addEventListener("click", () => {
+      mockData[i].user.retweets++
+      renderTweets()
+    })
   })
 
   //Likes
-allTweets.forEach((tweet, i)=> {
-  const count_likes = tweet.querySelector(".button_likes")
-  count_likes.addEventListener("click", () => {
+  allTweets.forEach((tweet, i) => {
+    const count_likes = tweet.querySelector(".button_likes")
+    count_likes.addEventListener("click", () => {
       mockData[i].user.likes++
       renderTweets()
+    })
   })
-})
 
 }
 
 
- //////////////////////////////////////////////////////// SEARCHBAR SEARCH WORDS
-initTweetSearch()
-;
- const initTweetSearch = () => {
+//////////////////////////////////////////////////////// SEARCHBAR SEARCH WORDS
+const initTweetSearch = () => {
   const searchInput = document.querySelector(".search_text");
   searchInput.addEventListener("keyup", () => {
     if (searchInput.value.length > 2) {
@@ -121,7 +118,7 @@ initTweetSearch()
         tweetsBlock.innerHTML = "No hay nada...";
       }
     } else {
-        renderTweets()
+      renderTweets()
     }
   });
 };
