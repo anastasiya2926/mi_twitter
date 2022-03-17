@@ -1,5 +1,5 @@
 import "modern-css-reset";
-///import "./../assets/styles/tailwind.css";
+import "./../assets/styles/tailwind.sass";
 import "./../assets/styles/style.sass";
 import "phosphor-icons";
 import mockData from "./data.json";
