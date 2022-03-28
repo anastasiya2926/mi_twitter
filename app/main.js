@@ -83,7 +83,7 @@ const initTweetEvents = () => {
 
   //RTs
   allTweets.forEach((tweet, i) => {
-    const count_retweets = tweet.querySelector(".button_rts") // null volver a meter el div
+    const count_retweets = tweet.querySelector(".button_rts") 
     count_retweets.addEventListener("click", () => {
       mockData[i].user.retweets++
       renderTweets()
@@ -114,8 +114,8 @@ const initTweetSearch = () => {
       if (filteredData.length > 0) {
         ///
       } else {
-        const tweetsBlock = document.querySelector(".feed_tweet");
-        tweetsBlock.innerHTML = "No hay nada...";
+        const tweetsBlock = document.querySelector(".tweet_container");
+        tweetsBlock.innerHTML = "There's nothing to see here...";
       }
     } else {
       renderTweets()
