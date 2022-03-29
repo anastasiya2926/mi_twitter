@@ -21,9 +21,9 @@ const renderTweets = () => {
   mockData.forEach((dataItem) => {
     tweetsHTML += `
       <div class="tweet_container" dataItem>
-        <div class="profile flex items-center justify-between mt-6 space-x-2  ">
+        <div class="profile flex items-start justify-between mt-6 space-x-2  ">
           <div class="profile_pic rounder-full"><img src="${dataItem.user.pic}" alt=""></div>
-          <div class="user flex items-center justify-between mt-6 space-x-4 ">
+          <div class="user flex  justify-between items-start mt-6 space-x-4 ">
             <div class="user_name"> ${dataItem.user.name} </div>
             <div class="user_at text-gray-500">@${dataItem.user.at}</div>
             <div class="user_time text-gray-500">${dataItem.user.time}min</div>
